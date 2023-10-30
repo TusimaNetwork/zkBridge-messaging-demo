@@ -6,7 +6,7 @@ import "../src/TokenMock.sol";
 import "../src/TokenReceiver.sol";
 
 contract DeploySender is Script {
-    address tokenMockAddress;
+    TokenMock tokenMock;
 
     function run() external {
         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
@@ -17,12 +17,12 @@ contract DeploySender is Script {
     }
 
     function deployTokenMock() internal {
-        TokenMock tokenMock = new TokenMock("TokenMock", "TokenMock");
-        tokenMockAddress = address(tokenMock);
+        tokenMock = new TokenMock("TokenMock", "TokenMock");
     }
 
     function deployTokenReceiver() internal {
         address messagingAddress = vm.envAddress("tusimaMessaging");
-        new TokenReceiver(messagingAddress, tokenMockAddress);
+        TokenReceiver tokenReceiver = new TokenReceiver(messagingAddress, address(tokenMock));
+        tokenMock.setAllower(address(tokenReceiver),true);
     }
 }

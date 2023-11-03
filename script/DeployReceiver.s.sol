@@ -23,6 +23,6 @@ contract DeploySender is Script {
     function deployTokenReceiver() internal {
         address messagingAddress = vm.envAddress("tusimaMessaging");
         TokenReceiver tokenReceiver = new TokenReceiver(messagingAddress, address(tokenMock));
-        tokenMock.setAllower(address(tokenReceiver),true);
+        tokenMock.setAdmin(address(tokenReceiver),true);
     }
 }

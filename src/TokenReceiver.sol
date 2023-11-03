@@ -15,7 +15,6 @@ contract TokenReceiver is Receiver {
         Info message
     );
 
-    address public messaging;
     address public tokenMock;
 
     constructor(
@@ -23,7 +22,6 @@ contract TokenReceiver is Receiver {
         address _tokenMock
     ) Receiver(_tusimaMessaging) {
         tokenMock = _tokenMock;
-        messaging = _tusimaMessaging;
     }
 
     function handleMsgImpl(

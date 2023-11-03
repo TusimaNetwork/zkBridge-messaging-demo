@@ -6,7 +6,7 @@ import {ERC20} from "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol"
 
 
 contract TokenMock is ERC20,Ownable,ITokenMock {
-    mapping (address => bool) public allower;
+    mapping (address => bool) public admin;
 
     constructor(
         string memory name_,
@@ -14,13 +14,13 @@ contract TokenMock is ERC20,Ownable,ITokenMock {
     ) ERC20(name_, symbol_) {}
 
 
-    modifier onlyAllower() {
-        require(allower[msg.sender], "Only deployer allowed");
+    modifier onlyAdmin() {
+        require(admin[msg.sender], "Only admin allowed");
         _;
     }
 
-    function setAllower(address _allower,bool _isAllowed) public onlyOwner {
-        allower[_allower] = _isAllowed;
+    function setAdmin(address _allower,bool _isAllowed) public onlyOwner {
+        admin[_allower] = _isAllowed;
     }
 
     function claim(address _to) public {
@@ -28,11 +28,11 @@ contract TokenMock is ERC20,Ownable,ITokenMock {
     }
 
 
-    function mint(address _to, uint256 _amount) public virtual override onlyAllower{
+    function mint(address _to, uint256 _amount) public virtual override onlyAdmin{
         _mint(_to, _amount);
     }
 
-    function burn(address _owner, uint256 _amount) public virtual override onlyAllower{
+    function burn(address _owner, uint256 _amount) public virtual override onlyAdmin{
         _burn(_owner, _amount);
     }
 }

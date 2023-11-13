@@ -6,22 +6,31 @@
  * @LastEditors: zyq
  * @Reference: 
 -->
-## Foundry
+# Tusima zkBridge Messaging Demo
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+![Tusima zkBridge](https://ucarecdn.com/f4e08f06-c238-47f8-b98a-97629c199377/bridgelogo.png)
 
-Foundry consists of:
+[![Tests](https://github.com/TusimaNetwork/zkBridge-messaging-interfaces/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/TusimaNetwork/zkBridge-messaging-interfaces/actions/workflows/test.yml)
+[![Twitter Follow](https://img.shields.io/twitter/follow/TusimaNetwork?style=social)](https://twitter.com/TusimaNetwork)
+[![Discord](https://img.shields.io/discord/965918503070728203?logo=Discord&logoColor=5865F2&label=discord&color=3ae600
+)](https://discord.com/invite/tusimanetwork)
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+**Tusima zkBridge** is a one-stop cross-chain solution based on zkSNARKs technology that is trustless and permissionless. 
 
-## Documentation
+For more information about Tusima zkBridge please refer to [here](https://tusima.gitbook.io/zkbridge/).
 
-https://book.getfoundry.sh/
+**Messaging** is the primary module of Tusima zkBridge, providing a set of `Solidity` language APIs. Through these APIs, developers can seamlessly transmit messages from the source chain to the destination chain, thus enabling the creation of omnichain applications.
 
-## Usage
+Messaging Repo: [TusimaNetwork/zkBridge-Messaging](https://github.com/TusimaNetwork/zkBridge-messaging)
+
+This repo aims to guide you through a demo on how to achieve a quick cross-chain token transfer using Tusima zkBridge.
+
+## Build with source code
+
+We are using **Foundry**, so before you build this project, make sure you have installed Foundry.
+
+> Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust. More detailed information please refer to their [doc](https://book.getfoundry.sh/).
+
 
 ### Build
 
